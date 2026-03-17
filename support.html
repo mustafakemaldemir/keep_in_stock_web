@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Keep in Stock support answers common questions about inventory tracking, shopping lists, notifications, and privacy."/>
+  <title>Support | Keep in Stock</title>
+  <link rel="icon" href="src_eng/AppIcon.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: "#2f9b57",
+            ink: "#132216",
+            mist: "#f4f7f1"
+          },
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="text-slate-900 dark:text-slate-100 transition-colors duration-200">
+  <div class="page-grid min-h-screen">
+    <header class="topbar sticky top-0 z-50">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+          <img src="src_eng/AppIcon.png" alt="Keep in Stock app icon" class="h-11 w-11 rounded-2xl shadow-lg shadow-black/10"/>
+          <div>
+            <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="header.badge">Support center</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-7 md:flex">
+          <a href="index.html" data-preserve-lang class="nav-link text-sm font-semibold" data-i18n="nav.home">Home</a>
+          <a href="#faq" class="nav-link text-sm font-semibold" data-i18n="nav.faq">FAQ</a>
+          <a href="#contact" class="nav-link text-sm font-semibold" data-i18n="nav.contact">Contact</a>
+          <a href="privacy-policy.html" data-preserve-lang class="nav-link text-sm font-semibold" data-i18n="nav.privacy">Privacy</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="lang-switch">
+            <button class="lang-btn" data-set-lang="tr" aria-pressed="false">TR</button>
+            <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button id="darkToggle" class="theme-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-600 transition-colors hover:text-brand dark:text-slate-300" aria-label="Toggle dark mode">
+            <span id="darkIcon" class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <button data-menu-toggle class="theme-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-600 md:hidden dark:text-slate-300" aria-label="Open menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-mobile-menu class="hidden border-t border-slate-200/70 px-4 py-4 md:hidden dark:border-slate-800">
+        <div class="space-y-1">
+          <a href="index.html" data-preserve-lang class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.home">Home</a>
+          <a href="#faq" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.faq">FAQ</a>
+          <a href="#contact" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.contact">Contact</a>
+          <a href="privacy-policy.html" data-preserve-lang class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.privacy">Privacy</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+          <div>
+            <div class="section-kicker mb-6">
+              <span class="material-symbols-outlined filled text-base">support_agent</span>
+              <span data-i18n="hero.kicker">Support hub</span>
+            </div>
+            <h1 class="display-font max-w-3xl text-5xl font-bold leading-[1] tracking-tight text-ink dark:text-white sm:text-6xl" data-i18n-html="hero.title">
+              Support for setup, stock flow, and local reminders.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="hero.body">
+              Find quick guidance for adding products, managing locations, updating stock, and reaching support without leaving the app ecosystem.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#faq" class="inline-flex items-center justify-center rounded-full bg-brand px-6 py-4 text-base font-extrabold text-white shadow-lg shadow-brand/20" data-i18n="hero.primary">Browse FAQ</a>
+              <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white/70 px-6 py-4 text-base font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100" data-i18n="hero.secondary">Open support form</a>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-2xl">inventory</span>
+              </div>
+              <h2 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="cards.one.title">Setup basics</h2>
+              <p class="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="cards.one.body">Learn how to create products, add first stock, and keep locations tidy from day one.</p>
+            </article>
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-2xl">swap_horiz</span>
+              </div>
+              <h2 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="cards.two.title">Movement flow</h2>
+              <p class="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="cards.two.body">Get help with stock in, stock out, product detail totals, and shopping-to-stock updates.</p>
+            </article>
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-2xl">notifications_active</span>
+              </div>
+              <h2 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="cards.three.title">Notification logic</h2>
+              <p class="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="cards.three.body">Understand how daily usage values shape low-stock reminders on your own device.</p>
+            </article>
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-2xl">shield_person</span>
+              </div>
+              <h2 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="cards.four.title">Privacy first</h2>
+              <p class="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="cards.four.body">Review what stays local, which permissions are optional, and how exports remain user-triggered.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="text-center">
+            <div class="section-kicker mb-5">
+              <span class="material-symbols-outlined filled text-base">help</span>
+              <span data-i18n="faq.kicker">FAQ</span>
+            </div>
+            <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white sm:text-5xl" data-i18n="faq.title">The essentials, organized by topic.</h2>
+            <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="faq.body">
+              These are the most common questions for a private, multi-location inventory setup.
+            </p>
+          </div>
+
+          <div class="mt-12 space-y-10">
+            <div>
+              <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="faq.sections.one">Getting started</p>
+              <div class="space-y-3">
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.one.q">How should I set up my first location?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.one.a">Create locations that match real storage areas such as kitchen, office, pantry, or storage room. This keeps product totals easier to trust later.</p>
+                  </div>
+                </div>
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.two.q">What is the quickest way to add products?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.two.a">Use the ready-made catalog for products you buy often. It saves setup time and helps you start tracking inventory right away.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="faq.sections.two">Daily usage</p>
+              <div class="space-y-3">
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.three.q">How do I keep totals accurate?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.three.a">Record both stock in and stock out movements whenever quantities change. The movement history screen helps you verify what affected the current total.</p>
+                  </div>
+                </div>
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.four.q">How do shopping lists update stock?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.four.a">When you mark a prepared list as completed, the list quantities can be added back into the selected location so restocking stays fast.</p>
+                  </div>
+                </div>
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.five.q">What do the low-stock reminders depend on?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.five.a">Keep in Stock uses the limit and daily decrease values you define to estimate remaining days and schedule local notifications accordingly.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="faq.sections.three">Privacy and data</p>
+              <div class="space-y-3">
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.six.q">Where is my inventory data stored?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.six.a">Your data is intended to stay on your device. The app does not rely on an account system or built-in cloud backend to manage your inventory.</p>
+                  </div>
+                </div>
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.seven.q">Does the app track me or collect analytics?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.seven.a">No. Keep in Stock is positioned as a privacy-focused app with no account wall, no analytics dashboard, and no advertising trackers built in.</p>
+                  </div>
+                </div>
+                <div class="faq-item overflow-hidden rounded-[1.7rem]">
+                  <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                    <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.eight.q">Which permission matters most for reminders?</span>
+                    <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6">
+                    <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.eight.a">Notification permission allows the app to alert you locally when stock is predicted to run low. If notifications are disabled, inventory tracking still works but reminders will not appear.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="glass-panel rounded-[2.2rem] p-8 sm:p-10">
+            <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <div class="section-kicker mb-5">
+                  <span class="material-symbols-outlined filled text-base">mail</span>
+                  <span data-i18n="contact.kicker">Direct help</span>
+                </div>
+                <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white" data-i18n="contact.title">Still need a hand?</h2>
+                <p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="contact.body">
+                  Send a support request here and include the issue, device model, and iOS version if you are reporting a bug.
+                </p>
+              </div>
+              <div class="soft-card rounded-[2rem] p-7">
+                <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="contact.label">Support form</p>
+                <form data-support-form class="mt-5 space-y-4">
+                  <div>
+                    <label for="support-name" class="mb-2 block text-sm font-bold text-ink dark:text-white" data-i18n="contact.form.nameLabel">Name</label>
+                    <input id="support-name" name="name" type="text" required data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Your name" class="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"/>
+                  </div>
+                  <div>
+                    <label for="support-email" class="mb-2 block text-sm font-bold text-ink dark:text-white" data-i18n="contact.form.emailLabel">Email</label>
+                    <input id="support-email" name="email" type="email" required data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="you@example.com" class="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"/>
+                  </div>
+                  <div>
+                    <label for="support-subject" class="mb-2 block text-sm font-bold text-ink dark:text-white" data-i18n="contact.form.subjectLabel">Subject</label>
+                    <input id="support-subject" name="subject" type="text" required data-i18n-placeholder="contact.form.subjectPlaceholder" placeholder="Bug report, feedback, or help" class="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"/>
+                  </div>
+                  <div>
+                    <label for="support-message" class="mb-2 block text-sm font-bold text-ink dark:text-white" data-i18n="contact.form.messageLabel">Message</label>
+                    <textarea id="support-message" name="message" rows="5" required data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Tell us what happened, what you expected, and which device or iOS version you use." class="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100"></textarea>
+                  </div>
+                  <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="contact.note">A short summary, screenshots, and your device model usually make support much faster.</p>
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <button type="submit" data-form-submit class="inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-brand/20 transition-transform hover:-translate-y-0.5" data-i18n="contact.form.submit">Send support request</button>
+                    <a href="mailto:mustafa_kemal_demir@protonmail.com?subject=Keep%20in%20Stock%20Support" class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100" data-i18n="contact.form.fallback">Use email instead</a>
+                  </div>
+                  <p data-form-status class="hidden rounded-2xl px-4 py-3 text-sm font-semibold"></p>
+                </form>
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a href="privacy-policy.html" data-preserve-lang class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100" data-i18n="contact.secondary">Review privacy policy</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200/70 px-4 py-12 sm:px-6 lg:px-8 dark:border-slate-800">
+      <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+        <div>
+          <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+            <img src="src_eng/AppIcon.png" alt="Keep in Stock app icon" class="h-10 w-10 rounded-2xl shadow-lg shadow-black/10"/>
+            <div>
+              <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="footer.tagline">Private inventory support, in two languages.</p>
+            </div>
+          </a>
+        </div>
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="footer.navTitle">Quick links</p>
+          <div class="mt-4 flex flex-col gap-3">
+            <a href="index.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="nav.home">Home</a>
+            <a href="privacy-policy.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="nav.privacy">Privacy</a>
+            <a href="terms.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="footer.terms">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="footer.contactTitle">Contact</p>
+          <div class="mt-4 flex flex-col gap-3">
+            <a href="mailto:mustafa_kemal_demir@protonmail.com?subject=Keep%20in%20Stock%20Support" class="footer-link text-sm font-semibold">mustafa_kemal_demir@protonmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto mt-10 max-w-7xl border-t border-slate-200/70 pt-6 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+        <p data-i18n="footer.copy">© 2026 Mustafa Kemal Demir. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.pageTranslations = {
+      en: {
+        meta: {
+          title: "Support | Keep in Stock",
+          description: "Keep in Stock support answers common questions about inventory tracking, shopping lists, notifications, and privacy."
+        },
+        header: {
+          badge: "Support center"
+        },
+        nav: {
+          home: "Home",
+          faq: "FAQ",
+          contact: "Contact",
+          privacy: "Privacy"
+        },
+        hero: {
+          kicker: "Support hub",
+          title: "Support for setup,<br/>stock flow, and local reminders.",
+          body: "Find quick guidance for adding products, managing locations, updating stock, and reaching support without leaving the app ecosystem.",
+          primary: "Browse FAQ",
+          secondary: "Open support form"
+        },
+        cards: {
+          one: {
+            title: "Setup basics",
+            body: "Learn how to create products, add first stock, and keep locations tidy from day one."
+          },
+          two: {
+            title: "Movement flow",
+            body: "Get help with stock in, stock out, product detail totals, and shopping-to-stock updates."
+          },
+          three: {
+            title: "Notification logic",
+            body: "Understand how daily usage values shape low-stock reminders on your own device."
+          },
+          four: {
+            title: "Privacy first",
+            body: "Review what stays local, which permissions are optional, and how exports remain user-triggered."
+          }
+        },
+        faq: {
+          kicker: "FAQ",
+          title: "The essentials, organized by topic.",
+          body: "These are the most common questions for a private, multi-location inventory setup.",
+          sections: {
+            one: "Getting started",
+            two: "Daily usage",
+            three: "Privacy and data"
+          },
+          items: {
+            one: {
+              q: "How should I set up my first location?",
+              a: "Create locations that match real storage areas such as kitchen, office, pantry, or storage room. This keeps product totals easier to trust later."
+            },
+            two: {
+              q: "What is the quickest way to add products?",
+              a: "Use the ready-made catalog for products you buy often. It saves setup time and helps you start tracking inventory right away."
+            },
+            three: {
+              q: "How do I keep totals accurate?",
+              a: "Record both stock in and stock out movements whenever quantities change. The movement history screen helps you verify what affected the current total."
+            },
+            four: {
+              q: "How do shopping lists update stock?",
+              a: "When you mark a prepared list as completed, the list quantities can be added back into the selected location so restocking stays fast."
+            },
+            five: {
+              q: "What do the low-stock reminders depend on?",
+              a: "Keep in Stock uses the limit and daily decrease values you define to estimate remaining days and schedule local notifications accordingly."
+            },
+            six: {
+              q: "Where is my inventory data stored?",
+              a: "Your data is intended to stay on your device. The app does not rely on an account system or built-in cloud backend to manage your inventory."
+            },
+            seven: {
+              q: "Does the app track me or collect analytics?",
+              a: "No. Keep in Stock is positioned as a privacy-focused app with no account wall, no analytics dashboard, and no advertising trackers built in."
+            },
+            eight: {
+              q: "Which permission matters most for reminders?",
+              a: "Notification permission allows the app to alert you locally when stock is predicted to run low. If notifications are disabled, inventory tracking still works but reminders will not appear."
+            }
+          }
+        },
+        contact: {
+          kicker: "Direct help",
+          title: "Still need a hand?",
+          body: "Send a support request here and include the issue, device model, and iOS version if you are reporting a bug.",
+          label: "Support form",
+          note: "A short summary, screenshots, and your device model usually make support much faster.",
+          primary: "Send email",
+          secondary: "Review privacy policy",
+          form: {
+            nameLabel: "Name",
+            namePlaceholder: "Your name",
+            emailLabel: "Email",
+            emailPlaceholder: "you@example.com",
+            subjectLabel: "Subject",
+            subjectPlaceholder: "Bug report, feedback, or help",
+            messageLabel: "Message",
+            messagePlaceholder: "Tell us what happened, what you expected, and which device or iOS version you use.",
+            submit: "Send support request",
+            submitting: "Sending...",
+            success: "Your message was sent. We will get back to you by email.",
+            error: "The form could not be sent right now. Please try again or use the email link instead.",
+            fallback: "Use email instead"
+          }
+        },
+        footer: {
+          tagline: "Private inventory support, in two languages.",
+          navTitle: "Quick links",
+          contactTitle: "Contact",
+          terms: "Terms of Service",
+          copy: "© 2026 Mustafa Kemal Demir. All rights reserved."
+        }
+      },
+      tr: {
+        meta: {
+          title: "Destek | Keep in Stock",
+          description: "Keep in Stock destek sayfasi; stok takibi, alisveris listeleri, bildirimler ve gizlilik hakkinda yaygin sorulari yanitlar."
+        },
+        header: {
+          badge: "Destek merkezi"
+        },
+        nav: {
+          home: "Ana sayfa",
+          faq: "SSS",
+          contact: "Iletisim",
+          privacy: "Gizlilik"
+        },
+        hero: {
+          kicker: "Destek alani",
+          title: "Kurulum, stok akisi ve<br/>yerel bildirimler icin destek.",
+          body: "Urun ekleme, konum yonetimi, stok guncelleme ve destek alma konularinda hizli yonlendirmeyi tek yerde bulun.",
+          primary: "SSS'yi incele",
+          secondary: "Destek formunu ac"
+        },
+        cards: {
+          one: {
+            title: "Kurulum temelleri",
+            body: "Urun olusturma, ilk stogu ekleme ve konumlari duzenli kurma adimlarini ogrenin."
+          },
+          two: {
+            title: "Hareket akisi",
+            body: "Stok girisi, stok cikisi, urun detay toplamlar ve listeyi stoga donusturme konularinda yardim alin."
+          },
+          three: {
+            title: "Bildirim mantigi",
+            body: "Gunluk kullanim degerlerinin cihazinizdaki dusuk stok bildirimlerini nasil belirledigini anlayin."
+          },
+          four: {
+            title: "Once gizlilik",
+            body: "Neyin yerel kaldigini, hangi izinlerin opsiyonel oldugunu ve disa aktarimin kullanici tetikli oldugunu gorun."
+          }
+        },
+        faq: {
+          kicker: "SSS",
+          title: "Temel konulari basliklar altinda topladik.",
+          body: "Bunlar gizlilige odakli, coklu konumlu bir stok duzeni icin en sik gelen sorular.",
+          sections: {
+            one: "Baslangic",
+            two: "Gunluk kullanim",
+            three: "Gizlilik ve veri"
+          },
+          items: {
+            one: {
+              q: "Ilk konumumu nasil kurmaliyim?",
+              a: "Mutfak, ofis, kiler veya depo gibi gercek saklama alanlarina karsilik gelen konumlar olusturun. Boylece urun toplamlarina sonradan daha kolay guvenebilirsiniz."
+            },
+            two: {
+              q: "Urun eklemenin en hizli yolu nedir?",
+              a: "Sik aldiginiz urunler icin hazir katalogu kullanin. Kurulum suresini kisaltir ve stok takibine hemen baslamanizi saglar."
+            },
+            three: {
+              q: "Toplamlari nasil dogru tutabilirim?",
+              a: "Miktar degistikce hem stok girisi hem stok cikisi hareketlerini kaydedin. Hareket gecmisi ekrani, mevcut toplami neyin etkiledigini dogrulamaniza yardim eder."
+            },
+            four: {
+              q: "Alisveris listeleri stogu nasil gunceller?",
+              a: "Hazirlanan listeyi tamamlandi olarak isaretlediginizde listedeki miktarlar secilen konuma geri eklenebilir; boylece yeniden stoklama hizlanir."
+            },
+            five: {
+              q: "Dusuk stok hatirlatmalari neye gore calisir?",
+              a: "Keep in Stock belirlediginiz limit ve gunluk azalma degerlerini kullanarak kalan gun tahmini yapar ve buna gore yerel bildirim planlar."
+            },
+            six: {
+              q: "Envanter verilerim nerede saklaniyor?",
+              a: "Verilerinizin cihazinizda kalmasi hedeflenir. Uygulama, envanteri yonetmek icin hesap sistemine veya yerlesik bir bulut altyapisina dayanmaz."
+            },
+            seven: {
+              q: "Uygulama beni takip ediyor mu veya analiz verisi topluyor mu?",
+              a: "Hayir. Keep in Stock, hesap duvari olmayan, analiz panosu icermeyen ve reklam takipcisi barindirmayan gizlilik odakli bir uygulama olarak konumlanir."
+            },
+            eight: {
+              q: "Hatirlatmalar icin en onemli izin hangisi?",
+              a: "Bildirim izni, stok azalmasi beklendiginde uygulamanin sizi yerel olarak uyarmasini saglar. Bildirimler kapaliysa stok takibi devam eder ama hatirlatma gorunmez."
+            }
+          }
+        },
+        contact: {
+          kicker: "Dogrudan yardim",
+          title: "Hala destek mi lazim?",
+          body: "Destek talebinizi buradan gonderebilir, hata bildiriyorsaniz sorun ozetini, cihaz modelini ve iOS surumunu ekleyebilirsiniz.",
+          label: "Destek formu",
+          note: "Kisa bir ozet, ekran goruntuleri ve cihaz modeliniz destek surecini belirgin sekilde hizlandirir.",
+          primary: "E-posta gonder",
+          secondary: "Gizlilik politikasini incele",
+          form: {
+            nameLabel: "Ad",
+            namePlaceholder: "Adiniz",
+            emailLabel: "E-posta",
+            emailPlaceholder: "ornek@mail.com",
+            subjectLabel: "Konu",
+            subjectPlaceholder: "Hata bildirimi, geri bildirim veya yardim",
+            messageLabel: "Mesaj",
+            messagePlaceholder: "Ne oldugunu, ne beklediginizi ve hangi cihaz veya iOS surumunu kullandiginizi yazin.",
+            submit: "Destek talebi gonder",
+            submitting: "Gonderiliyor...",
+            success: "Mesajiniz gonderildi. Size e-posta ile donulecek.",
+            error: "Form su an gonderilemedi. Lutfen tekrar deneyin veya e-posta baglantisini kullanin.",
+            fallback: "Bunun yerine e-posta kullan"
+          }
+        },
+        footer: {
+          tagline: "Iki dilde, gizlilige odakli destek.",
+          navTitle: "Hizli baglantilar",
+          contactTitle: "Iletisim",
+          terms: "Kullanim Sartlari",
+          copy: "© 2026 Mustafa Kemal Demir. Tum haklari saklidir."
+        }
+      }
+    };
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Keep in Stock helps you manage stock across multiple locations, plan shopping lists, and receive local reminders based on daily usage."/>
+  <title>Keep in Stock | Smart Inventory for Everyday Spaces</title>
+  <link rel="icon" href="src_eng/AppIcon.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: "#2f9b57",
+            ink: "#132216",
+            mist: "#f4f7f1"
+          },
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="text-slate-900 dark:text-slate-100 transition-colors duration-200">
+  <div class="page-grid min-h-screen">
+    <header class="topbar sticky top-0 z-50">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+          <img src="src_eng/AppIcon.png" data-i18n-alt="meta.iconAlt" alt="Keep in Stock app icon" class="h-11 w-11 rounded-2xl shadow-lg shadow-black/10"/>
+          <div>
+            <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="header.badge">Private inventory for iPhone and iPad</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-7 md:flex">
+          <a href="#features" class="nav-link text-sm font-semibold" data-i18n="nav.features">Features</a>
+          <a href="#workflow" class="nav-link text-sm font-semibold" data-i18n="nav.workflow">How it works</a>
+          <a href="#faq" class="nav-link text-sm font-semibold" data-i18n="nav.faq">FAQ</a>
+          <a href="support.html" data-preserve-lang class="nav-link text-sm font-semibold" data-i18n="nav.support">Support</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="lang-switch">
+            <button class="lang-btn" data-set-lang="tr" aria-pressed="false">TR</button>
+            <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button id="darkToggle" class="theme-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-600 transition-colors hover:text-brand dark:text-slate-300" aria-label="Toggle dark mode">
+            <span id="darkIcon" class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <a href="#download" class="hidden rounded-full bg-brand px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-brand/20 transition-transform hover:-translate-y-0.5 sm:inline-flex" data-i18n="header.cta">App Store soon</a>
+          <button data-menu-toggle class="theme-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-600 md:hidden dark:text-slate-300" aria-label="Open menu">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-mobile-menu class="hidden border-t border-slate-200/70 px-4 py-4 md:hidden dark:border-slate-800">
+        <div class="space-y-1">
+          <a href="#features" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.features">Features</a>
+          <a href="#workflow" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.workflow">How it works</a>
+          <a href="#faq" class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.faq">FAQ</a>
+          <a href="support.html" data-preserve-lang class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/70 hover:text-brand dark:text-slate-300 dark:hover:bg-slate-900/70" data-i18n="nav.support">Support</a>
+          <a href="#download" class="mt-3 inline-flex w-full justify-center rounded-2xl bg-brand px-5 py-3 text-sm font-extrabold text-white" data-i18n="header.cta">App Store soon</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-grid px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+        <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div class="rise-in">
+            <div class="section-kicker mb-6">
+              <span class="material-symbols-outlined filled text-base">bolt</span>
+              <span data-i18n="hero.kicker">Built for homes, offices, and shared spaces</span>
+            </div>
+            <h1 class="display-font max-w-3xl text-5xl font-bold leading-[0.98] tracking-tight text-ink dark:text-white sm:text-6xl lg:text-7xl" data-i18n-html="hero.title">
+              Track products, stock, and shopping in one place.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="hero.body">
+              Keep in Stock helps you add products from a ready-made catalog, save first stock fast, follow totals by location, and restock from shopping lists with fully local data.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#download" class="inline-flex items-center justify-center gap-3 rounded-full bg-slate-950 px-6 py-4 text-base font-extrabold text-white shadow-2xl shadow-slate-900/15 transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-slate-900" data-i18n="hero.primaryCta">
+                App Store release soon
+              </a>
+              <a href="#features" class="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 bg-white/70 px-6 py-4 text-base font-bold text-slate-800 transition-colors hover:border-brand hover:text-brand dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100" data-i18n="hero.secondaryCta">
+                Explore features
+              </a>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              <div class="metric-tile rounded-3xl p-5">
+                <p class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="hero.metrics.one.value">Catalog-first</p>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="hero.metrics.one.label">Start from common products and save first stock in one flow.</p>
+              </div>
+              <div class="metric-tile rounded-3xl p-5">
+                <p class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="hero.metrics.two.value">Low-stock alerts</p>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="hero.metrics.two.label">Use daily usage to estimate remaining days and notify locally.</p>
+              </div>
+              <div class="metric-tile rounded-3xl p-5">
+                <p class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="hero.metrics.three.value">100% local</p>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-400" data-i18n="hero.metrics.three.label">No accounts, no analytics, and no cloud storage built in.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rise-in lg:justify-self-end">
+            <div class="glass-panel rounded-[2rem] p-4 sm:p-6">
+              <div class="grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
+                <div class="shot-frame">
+                  <img src="src_eng/01.png" data-i18n-src="heroShots.primary.src" data-i18n-alt="heroShots.primary.alt" alt="Keep in Stock product list screen" class="app-shot"/>
+                </div>
+                <div class="grid gap-4">
+                  <div class="shot-frame">
+                    <img src="src_eng/03.png" data-i18n-src="heroShots.secondary.src" data-i18n-alt="heroShots.secondary.alt" alt="Keep in Stock stock movement form" class="app-shot"/>
+                  </div>
+                  <div class="shot-frame">
+                    <img src="src_eng/05.png" data-i18n-src="heroShots.tertiary.src" data-i18n-alt="heroShots.tertiary.alt" alt="Keep in Stock shopping list detail screen" class="app-shot"/>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5 rounded-[1.6rem] bg-slate-950 px-5 py-4 text-white dark:bg-slate-900">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-emerald-200" data-i18n="hero.callout.label">Why it matters</p>
+                <p class="mt-2 text-sm leading-7 text-slate-200" data-i18n="hero.callout.body">
+                  Pick a product, set its first quantity, log movements, and turn finished shopping lists straight into stock.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-3xl">
+            <div class="section-kicker mb-5">
+              <span class="material-symbols-outlined filled text-base">inventory_2</span>
+              <span data-i18n="features.kicker">Feature set</span>
+            </div>
+            <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white sm:text-5xl" data-i18n="features.title">A stock workflow that stays lightweight.</h2>
+            <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="features.body">
+              Keep in Stock focuses on the actions that matter most: adding products quickly, keeping totals accurate, and restocking without friction.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-6 lg:grid-cols-2">
+            <article class="soft-card rounded-[2rem] p-8">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-3xl">warehouse</span>
+              </div>
+              <h3 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="features.cards.one.title">See one product across every location.</h3>
+              <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="features.cards.one.body">
+                Open a product and review total stock, active locations, remaining days, and recent movements together.
+              </p>
+            </article>
+
+            <article class="soft-card rounded-[2rem] p-8">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-3xl">category</span>
+              </div>
+              <h3 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="features.cards.two.title">Add products fast with a ready-made catalog.</h3>
+              <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="features.cards.two.body">
+                Start from common items, set daily usage, and save the first quantity and location in the same flow.
+              </p>
+            </article>
+
+            <article class="soft-card rounded-[2rem] p-8">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-3xl">swap_horiz</span>
+              </div>
+              <h3 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="features.cards.three.title">Record every stock in and stock out movement.</h3>
+              <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="features.cards.three.body">
+                Keep movement history tidy with product, location, quantity, and notes so totals always stay grounded in real events.
+              </p>
+            </article>
+
+            <article class="soft-card rounded-[2rem] p-8">
+              <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+                <span class="material-symbols-outlined text-3xl">shopping_cart</span>
+              </div>
+              <h3 class="display-font text-2xl font-bold text-ink dark:text-white" data-i18n="features.cards.four.title">Turn shopping lists into updated stock.</h3>
+              <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="features.cards.four.body">
+                Complete a prepared shopping list and let purchased quantities flow into the selected location automatically.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-10 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div class="glass-panel rounded-[2rem] p-8">
+            <div class="section-kicker mb-5">
+              <span class="material-symbols-outlined filled text-base">notifications_active</span>
+              <span data-i18n="signals.kicker">Built-in signals</span>
+            </div>
+            <h2 class="display-font text-3xl font-bold tracking-tight text-ink dark:text-white" data-i18n="signals.title">Know what is running low before it surprises you.</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300" data-i18n="signals.body">
+              Estimate remaining days from daily decrease values and receive reminders locally on your device when the stock needs attention.
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="soft-card rounded-[2rem] p-7">
+              <p class="display-font text-xl font-bold text-ink dark:text-white" data-i18n="signals.items.one.title">Local notifications</p>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="signals.items.one.body">Alerts are generated on-device from the inventory rules you define.</p>
+            </div>
+            <div class="soft-card rounded-[2rem] p-7">
+              <p class="display-font text-xl font-bold text-ink dark:text-white" data-i18n="signals.items.two.title">Historical movements</p>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="signals.items.two.body">Review recent entries and exits to understand how the stock changes over time.</p>
+            </div>
+            <div class="soft-card rounded-[2rem] p-7">
+              <p class="display-font text-xl font-bold text-ink dark:text-white" data-i18n="signals.items.three.title">Privacy by default</p>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="signals.items.three.body">Your lists, locations, and product history stay on your device unless you choose otherwise.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-3xl">
+            <div class="section-kicker mb-5">
+              <span class="material-symbols-outlined filled text-base">route</span>
+              <span data-i18n="workflow.kicker">Workflow</span>
+            </div>
+            <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white sm:text-5xl" data-i18n="workflow.title">Set up, move stock, and restock without friction.</h2>
+            <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="workflow.body">
+              The app keeps the loop short so inventory management stays practical enough for real daily use.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-8 lg:grid-cols-3">
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="shot-frame">
+                <img src="src_eng/02.png" data-i18n-src="workflow.steps.one.src" data-i18n-alt="workflow.steps.one.alt" alt="Quick add catalog screen" class="app-shot"/>
+              </div>
+              <div class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-white">1</div>
+              <h3 class="mt-4 display-font text-2xl font-bold text-ink dark:text-white" data-i18n="workflow.steps.one.title">Pick from the catalog.</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="workflow.steps.one.body">
+                Choose familiar products quickly, then set limits and locations that match your own storage setup.
+              </p>
+            </article>
+
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="shot-frame">
+                <img src="src_eng/03.png" data-i18n-src="workflow.steps.two.src" data-i18n-alt="workflow.steps.two.alt" alt="Stock movement entry screen" class="app-shot"/>
+              </div>
+              <div class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-white">2</div>
+              <h3 class="mt-4 display-font text-2xl font-bold text-ink dark:text-white" data-i18n="workflow.steps.two.title">Log movements in seconds.</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="workflow.steps.two.body">
+                Record stock in or stock out with the right quantity and location to keep every count up to date.
+              </p>
+            </article>
+
+            <article class="soft-card rounded-[2rem] p-6">
+              <div class="shot-frame">
+                <img src="src_eng/05.png" data-i18n-src="workflow.steps.three.src" data-i18n-alt="workflow.steps.three.alt" alt="Shopping list completion screen" class="app-shot"/>
+              </div>
+              <div class="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-white">3</div>
+              <h3 class="mt-4 display-font text-2xl font-bold text-ink dark:text-white" data-i18n="workflow.steps.three.title">Complete shopping and restock.</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="workflow.steps.three.body">
+                Use prepared shopping lists and convert the finished purchase into stock for the selected location.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
+            <div class="max-w-3xl">
+              <div class="section-kicker mb-5">
+                <span class="material-symbols-outlined filled text-base">smart_display</span>
+                <span data-i18n="gallery.kicker">Localized gallery</span>
+              </div>
+              <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white sm:text-5xl" data-i18n="gallery.title">Every screen is ready in Turkish and English.</h2>
+              <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="gallery.body">
+                Switch language from the header and the website will swap both content and screenshots to match.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
+            <article class="gallery-card soft-card rounded-[2rem] p-4">
+              <div class="shot-frame">
+                <img src="src_eng/01.png" data-i18n-src="gallery.items.one.src" data-i18n-alt="gallery.items.one.alt" alt="Inventory overview screen" class="app-shot"/>
+              </div>
+              <p class="mt-4 text-center text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="gallery.items.one.label">Inventory overview</p>
+            </article>
+            <article class="gallery-card soft-card rounded-[2rem] p-4">
+              <div class="shot-frame">
+                <img src="src_eng/02.png" data-i18n-src="gallery.items.two.src" data-i18n-alt="gallery.items.two.alt" alt="Catalog quick add screen" class="app-shot"/>
+              </div>
+              <p class="mt-4 text-center text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="gallery.items.two.label">Catalog quick add</p>
+            </article>
+            <article class="gallery-card soft-card rounded-[2rem] p-4">
+              <div class="shot-frame">
+                <img src="src_eng/03.png" data-i18n-src="gallery.items.three.src" data-i18n-alt="gallery.items.three.alt" alt="Stock movement entry screen" class="app-shot"/>
+              </div>
+              <p class="mt-4 text-center text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="gallery.items.three.label">Movement entry</p>
+            </article>
+            <article class="gallery-card soft-card rounded-[2rem] p-4">
+              <div class="shot-frame">
+                <img src="src_eng/04.png" data-i18n-src="gallery.items.four.src" data-i18n-alt="gallery.items.four.alt" alt="Movement history screen" class="app-shot"/>
+              </div>
+              <p class="mt-4 text-center text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="gallery.items.four.label">History view</p>
+            </article>
+            <article class="gallery-card soft-card rounded-[2rem] p-4">
+              <div class="shot-frame">
+                <img src="src_eng/05.png" data-i18n-src="gallery.items.five.src" data-i18n-alt="gallery.items.five.alt" alt="Shopping list detail screen" class="app-shot"/>
+              </div>
+              <p class="mt-4 text-center text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="gallery.items.five.label">Shopping to stock</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl">
+          <div class="text-center">
+            <div class="section-kicker mb-5">
+              <span class="material-symbols-outlined filled text-base">help</span>
+              <span data-i18n="faq.kicker">FAQ</span>
+            </div>
+            <h2 class="display-font text-4xl font-bold tracking-tight text-ink dark:text-white sm:text-5xl" data-i18n="faq.title">Questions people usually ask first.</h2>
+            <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300" data-i18n="faq.body">
+              The short answers on privacy, notifications, locations, and offline use.
+            </p>
+          </div>
+
+          <div class="mt-10 space-y-3">
+            <div class="faq-item overflow-hidden rounded-[1.7rem]">
+              <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.one.q">Does Keep in Stock collect any personal data?</span>
+                <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6">
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.one.a">No. The app is designed without accounts, analytics, or third-party tracking. Your inventory data stays on your device.</p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-[1.7rem]">
+              <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.two.q">Can I manage the same product in more than one location?</span>
+                <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6">
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.two.a">Yes. Keep in Stock is built for multiple locations, so one product can be tracked across separate rooms, offices, or storage points.</p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-[1.7rem]">
+              <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.three.q">How do low-stock reminders work?</span>
+                <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6">
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.three.a">The app uses your limits and daily decrease values to estimate how many days remain, then sends local notifications when attention is needed.</p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-[1.7rem]">
+              <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.four.q">Does the app need internet access?</span>
+                <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6">
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="faq.items.four.a">Core inventory flows are designed to work locally on the device. There is no built-in account system or remote data sync in the app.</p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-[1.7rem]">
+              <button class="faq-btn flex w-full items-center justify-between gap-4 p-6 text-left">
+                <span class="text-base font-bold text-ink dark:text-white" data-i18n="faq.items.five.q">Where can I get help if I need it?</span>
+                <span class="faq-icon material-symbols-outlined text-slate-400 transition-transform duration-200">expand_more</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6">
+                <p class="text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n-html="faq.items.five.a">Visit the support page or email <a href="mailto:mustafa_kemal_demir@protonmail.com">mustafa_kemal_demir@protonmail.com</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-5xl">
+          <div class="cta-panel rounded-[2.4rem] px-8 py-12 text-white shadow-2xl shadow-brand/20 sm:px-12 sm:py-14">
+            <div class="max-w-3xl">
+              <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-white/70" data-i18n="cta.kicker">Next step</p>
+              <h2 class="mt-4 display-font text-4xl font-bold tracking-tight sm:text-5xl" data-i18n="cta.title">Give your stock routine a calmer system.</h2>
+              <p class="mt-4 text-lg leading-8 text-white/85" data-i18n="cta.body">
+                Keep in Stock is prepared for a bilingual launch page today, and the App Store link can be dropped in whenever you are ready to publish.
+              </p>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="#" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-base font-extrabold text-slate-900 transition-transform hover:-translate-y-0.5" data-i18n="cta.primary">Replace with App Store URL</a>
+                <a href="support.html" data-preserve-lang class="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-4 text-base font-bold text-white" data-i18n="cta.secondary">Open support page</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200/70 px-4 py-12 sm:px-6 lg:px-8 dark:border-slate-800">
+      <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+        <div>
+          <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+            <img src="src_eng/AppIcon.png" alt="Keep in Stock app icon" class="h-10 w-10 rounded-2xl shadow-lg shadow-black/10"/>
+            <div>
+              <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="footer.tagline">Inventory tracking without the cloud overhead.</p>
+            </div>
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="footer.navTitle">Navigate</p>
+          <div class="mt-4 flex flex-col gap-3">
+            <a href="#features" class="footer-link text-sm font-semibold" data-i18n="nav.features">Features</a>
+            <a href="#workflow" class="footer-link text-sm font-semibold" data-i18n="nav.workflow">How it works</a>
+            <a href="support.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="nav.support">Support</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="footer.legalTitle">Legal</p>
+          <div class="mt-4 flex flex-col gap-3">
+            <a href="privacy-policy.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="terms.html" data-preserve-lang class="footer-link text-sm font-semibold" data-i18n="footer.terms">Terms of Service</a>
+            <a href="mailto:mustafa_kemal_demir@protonmail.com" class="footer-link text-sm font-semibold">mustafa_kemal_demir@protonmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-7xl border-t border-slate-200/70 pt-6 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+        <p data-i18n="footer.copy">© 2026 Mustafa Kemal Demir. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.pageTranslations = {
+      en: {
+        meta: {
+          title: "Keep in Stock | Smart Inventory for Everyday Spaces",
+          description: "Keep in Stock helps you manage stock across multiple locations, plan shopping lists, and receive local reminders based on daily usage.",
+          iconAlt: "Keep in Stock app icon"
+        },
+        header: {
+          badge: "Private inventory for iPhone and iPad",
+          cta: "App Store soon"
+        },
+        nav: {
+          features: "Features",
+          workflow: "How it works",
+          faq: "FAQ",
+          support: "Support"
+        },
+        hero: {
+          kicker: "Built for homes, offices, and shared spaces",
+          title: "Track products, stock,<br/>and shopping in one place.",
+          body: "Keep in Stock helps you add products from a ready-made catalog, save first stock fast, follow totals by location, and restock from shopping lists with fully local data.",
+          primaryCta: "App Store release soon",
+          secondaryCta: "Explore features",
+          metrics: {
+            one: {
+              value: "Catalog-first",
+              label: "Start from common products and save first stock in one flow."
+            },
+            two: {
+              value: "Low-stock alerts",
+              label: "Use daily usage to estimate remaining days and notify locally."
+            },
+            three: {
+              value: "100% local",
+              label: "No accounts, no analytics, and no cloud storage built in."
+            }
+          },
+          callout: {
+            label: "Why it matters",
+            body: "Pick a product, set its first quantity, log movements, and turn finished shopping lists straight into stock."
+          }
+        },
+        heroShots: {
+          primary: {
+            src: "src_eng/01.png",
+            alt: "Keep in Stock product list screen"
+          },
+          secondary: {
+            src: "src_eng/03.png",
+            alt: "Keep in Stock stock movement form"
+          },
+          tertiary: {
+            src: "src_eng/05.png",
+            alt: "Keep in Stock shopping list detail screen"
+          }
+        },
+        features: {
+          kicker: "Feature set",
+          title: "A stock workflow that stays lightweight.",
+          body: "Keep in Stock focuses on the actions that matter most: adding products quickly, keeping totals accurate, and restocking without friction.",
+          cards: {
+            one: {
+              title: "See one product across every location.",
+              body: "Open a product and review total stock, active locations, remaining days, and recent movements together."
+            },
+            two: {
+              title: "Add products fast with a ready-made catalog.",
+              body: "Start from common items, set daily usage, and save the first quantity and location in the same flow."
+            },
+            three: {
+              title: "Record every stock in and stock out movement.",
+              body: "Keep movement history tidy with product, location, quantity, and notes so totals always stay grounded in real events."
+            },
+            four: {
+              title: "Turn shopping lists into updated stock.",
+              body: "Complete a prepared shopping list and let purchased quantities flow into the selected location automatically."
+            }
+          }
+        },
+        signals: {
+          kicker: "Built-in signals",
+          title: "Know what is running low before it surprises you.",
+          body: "Estimate remaining days from daily decrease values and receive reminders locally on your device when the stock needs attention.",
+          items: {
+            one: {
+              title: "Local notifications",
+              body: "Alerts are generated on-device from the inventory rules you define."
+            },
+            two: {
+              title: "Historical movements",
+              body: "Review recent entries and exits to understand how the stock changes over time."
+            },
+            three: {
+              title: "Privacy by default",
+              body: "Your lists, locations, and product history stay on your device unless you choose otherwise."
+            }
+          }
+        },
+        workflow: {
+          kicker: "Workflow",
+          title: "Set up, move stock, and restock without friction.",
+          body: "The app keeps the loop short so inventory management stays practical enough for real daily use.",
+          steps: {
+            one: {
+              src: "src_eng/02.png",
+              alt: "Quick add catalog screen",
+              title: "Pick from the catalog.",
+              body: "Choose a familiar product, set daily usage, and save first stock with the right location."
+            },
+            two: {
+              src: "src_eng/03.png",
+              alt: "Stock movement entry screen",
+              title: "Log movements in seconds.",
+              body: "Record stock in or stock out with the right quantity and location to keep every total up to date."
+            },
+            three: {
+              src: "src_eng/05.png",
+              alt: "Shopping list completion screen",
+              title: "Complete shopping and restock.",
+              body: "Use prepared shopping lists and convert the finished purchase into stock for the selected location."
+            }
+          }
+        },
+        gallery: {
+          kicker: "Localized gallery",
+          title: "Every screen is ready in Turkish and English.",
+          body: "Switch language from the header and the website will swap both content and screenshots to match.",
+          items: {
+            one: {
+              src: "src_eng/01.png",
+              alt: "Inventory overview screen",
+              label: "Inventory overview"
+            },
+            two: {
+              src: "src_eng/02.png",
+              alt: "Catalog quick add screen",
+              label: "Catalog quick add"
+            },
+            three: {
+              src: "src_eng/03.png",
+              alt: "Stock movement entry screen",
+              label: "Movement entry"
+            },
+            four: {
+              src: "src_eng/04.png",
+              alt: "Movement history screen",
+              label: "History view"
+            },
+            five: {
+              src: "src_eng/05.png",
+              alt: "Shopping list detail screen",
+              label: "Shopping to stock"
+            }
+          }
+        },
+        faq: {
+          kicker: "FAQ",
+          title: "Questions people usually ask first.",
+          body: "The short answers on privacy, notifications, locations, and offline use.",
+          items: {
+            one: {
+              q: "Does Keep in Stock collect any personal data?",
+              a: "No. The app is designed without accounts, analytics, or third-party tracking. Your inventory data stays on your device."
+            },
+            two: {
+              q: "Can I manage the same product in more than one location?",
+              a: "Yes. Keep in Stock is built for multiple locations, so one product can be tracked across separate rooms, offices, or storage points."
+            },
+            three: {
+              q: "How do low-stock reminders work?",
+              a: "The app uses your limits and daily decrease values to estimate how many days remain, then sends local notifications when attention is needed."
+            },
+            four: {
+              q: "Does the app need internet access?",
+              a: "Core inventory flows are designed to work locally on the device. There is no built-in account system or remote data sync in the app."
+            },
+            five: {
+              q: "Where can I get help if I need it?",
+              a: "Visit the support page or email <a href=\"mailto:mustafa_kemal_demir@protonmail.com\">mustafa_kemal_demir@protonmail.com</a>."
+            }
+          }
+        },
+        cta: {
+          kicker: "Next step",
+          title: "Give your stock routine a calmer system.",
+          body: "Keep in Stock already has bilingual support, privacy pages, and a support form, so the App Store link can drop in when you are ready to publish.",
+          primary: "Replace with App Store URL",
+          secondary: "Open support page"
+        },
+        footer: {
+          tagline: "Local inventory tracking for iPhone and iPad.",
+          navTitle: "Navigate",
+          legalTitle: "Legal",
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+          copy: "© 2026 Mustafa Kemal Demir. All rights reserved."
+        }
+      },
+      tr: {
+        meta: {
+          title: "Keep in Stock | Gunluk Alanlar Icin Akilli Stok Takibi",
+          description: "Keep in Stock birden fazla konumdaki stoklarinizi yonetmenize, alisveris listeleri olusturmaniza ve gunluk kullanim temelli yerel bildirimler almaniza yardimci olur.",
+          iconAlt: "Keep in Stock uygulama ikonu"
+        },
+        header: {
+          badge: "Gizlilige odakli stok uygulamasi",
+          cta: "App Store yakinda"
+        },
+        nav: {
+          features: "Ozellikler",
+          workflow: "Nasil calisir",
+          faq: "SSS",
+          support: "Destek"
+        },
+        hero: {
+          kicker: "Ev, ofis ve paylasimli alanlar icin tasarlandi",
+          title: "Urunleri, stogu ve<br/>alisverisi tek yerde yonetin.",
+          body: "Keep in Stock hazir katalogdan urun eklemenize, ilk stogu hizla kaydetmenize, konuma gore toplamlari takip etmenize ve alisveris listelerini stok olarak islemenize yardimci olur.",
+          primaryCta: "App Store cikisi yakinda",
+          secondaryCta: "Ozellikleri incele",
+          metrics: {
+            one: {
+              value: "Katalog odakli",
+              label: "Sik urunlerle baslayin, ilk stogu tek akisla kaydedin."
+            },
+            two: {
+              value: "Dusuk stok uyarilari",
+              label: "Gunluk kullanimla kalan gunu tahmin edin ve yerel bildirim alin."
+            },
+            three: {
+              value: "Tamamen yerel",
+              label: "Hesap yok, analiz yok, yerlesik bulut senkronu yok."
+            }
+          },
+          callout: {
+            label: "Neden onemli",
+            body: "Urun secin, ilk miktari kaydedin, hareket ekleyin ve tamamlanan alisverisi dogrudan stoga donusturun."
+          }
+        },
+        heroShots: {
+          primary: {
+            src: "src_tr/01.png",
+            alt: "Keep in Stock urun listesi ekrani"
+          },
+          secondary: {
+            src: "src_tr/03.png",
+            alt: "Keep in Stock stok hareket formu"
+          },
+          tertiary: {
+            src: "src_tr/05.png",
+            alt: "Keep in Stock alisveris listesi detayi"
+          }
+        },
+        features: {
+          kicker: "Ozellik seti",
+          title: "Hafif kalan ama guclu bir stok akisi.",
+          body: "Keep in Stock en onemli aksiyonlara odaklanir: urunleri hizla eklemek, toplamlari dogru tutmak ve yeniden stoklamayi kolaylastirmak.",
+          cards: {
+            one: {
+              title: "Tek urunu tum konumlarda gorun.",
+              body: "Bir urunu acip toplam stok, aktif konumlar, kalan gun ve son hareketleri birlikte inceleyin."
+            },
+            two: {
+              title: "Hazir katalogla urunleri hizli ekleyin.",
+              body: "Sik kullanilan urunlerle baslayin, gunluk kullanim belirleyin ve ilk miktar ile konumu ayni akista kaydedin."
+            },
+            three: {
+              title: "Her stok giris ve cikisini kaydedin.",
+              body: "Urun, konum, miktar ve notlarla hareket gecmisini duzenli tutun; toplamlar gercek olaylara dayansin."
+            },
+            four: {
+              title: "Alisveris listelerini dogrudan stoga donusturun.",
+              body: "Hazirlanan alisverisi tamamladiginizda satin alinan miktarlar secilen konuma otomatik olarak aktarilsin."
+            }
+          }
+        },
+        signals: {
+          kicker: "Dahili sinyaller",
+          title: "Azalan stoklari surpriz olmadan once gorun.",
+          body: "Gunluk azalma degerlerinden kalan gun tahmini olusturun ve stok ilgi gerektirdiginde cihazinizda yerel bildirim alin.",
+          items: {
+            one: {
+              title: "Yerel bildirimler",
+              body: "Uyarilar, tanimladiginiz stok kurallarina gore dogrudan cihaz uzerinde uretilir."
+            },
+            two: {
+              title: "Hareket gecmisi",
+              body: "Son giris ve cikislari inceleyerek stok degisiminin nasil olustugunu net sekilde gorun."
+            },
+            three: {
+              title: "Varsayilan gizlilik",
+              body: "Listeleriniz, konumlariniz ve urun gecmisiniz siz aksini secmedikce cihazinizda kalir."
+            }
+          }
+        },
+        workflow: {
+          kicker: "Akis",
+          title: "Kurulum, hareket ve yeniden stoklama surtunmesiz ilerlesin.",
+          body: "Uygulama donguyu kisa tutar; boylece stok yonetimi gercek gunluk kullanimda da pratik kalir.",
+          steps: {
+            one: {
+              src: "src_tr/02.png",
+              alt: "Hizli urun ekleme katalog ekrani",
+              title: "Katalogdan urun secin.",
+              body: "Tanik urunu secin, gunluk kullanim belirleyin ve ilk stogu dogru konumla kaydedin."
+            },
+            two: {
+              src: "src_tr/03.png",
+              alt: "Stok hareket giris ekrani",
+              title: "Hareketleri saniyeler icinde kaydedin.",
+              body: "Dogru miktar ve konumla stok giris ya da cikisini kaydedin; tum toplamlar guncel kalsin."
+            },
+            three: {
+              src: "src_tr/05.png",
+              alt: "Alisveris listesi tamamlama ekrani",
+              title: "Alisverisi tamamlayip stoga ekleyin.",
+              body: "Hazirlanan listeyi kullanin ve tamamlanan alisverisi secilen konum icin yeni stok olarak kaydedin."
+            }
+          }
+        },
+        gallery: {
+          kicker: "Iki dilli galeri",
+          title: "Tum ekranlar Turkce ve Ingilizce hazir.",
+          body: "Ustteki dil anahtarini degistirdiginizde site hem metinleri hem ekran goruntulerini birlikte degistirir.",
+          items: {
+            one: {
+              src: "src_tr/01.png",
+              alt: "Stok genel gorunum ekrani",
+              label: "Stok genel gorunum"
+            },
+            two: {
+              src: "src_tr/02.png",
+              alt: "Katalogdan hizli ekleme ekrani",
+              label: "Katalogdan hizli ekleme"
+            },
+            three: {
+              src: "src_tr/03.png",
+              alt: "Stok hareket giris ekrani",
+              label: "Hareket girisi"
+            },
+            four: {
+              src: "src_tr/04.png",
+              alt: "Hareket gecmisi ekrani",
+              label: "Gecmis gorunumu"
+            },
+            five: {
+              src: "src_tr/05.png",
+              alt: "Alisveristen stoga donus ekrani",
+              label: "Alisveristen stoga"
+            }
+          }
+        },
+        faq: {
+          kicker: "SSS",
+          title: "Ilk bakista en cok sorulan sorular.",
+          body: "Gizlilik, bildirimler, konumlar ve cevrimdisi kullanim hakkinda kisa cevaplar.",
+          items: {
+            one: {
+              q: "Keep in Stock herhangi bir kisisel veri topluyor mu?",
+              a: "Hayir. Uygulama hesap sistemi, analiz altyapisi veya ucuncu taraf takip araclari olmadan tasarlanmistir. Envanter verileriniz cihazinizda kalir."
+            },
+            two: {
+              q: "Ayni urunu birden fazla konumda takip edebilir miyim?",
+              a: "Evet. Keep in Stock coklu konum mantigiyla calisir; ayni urun farkli oda, ofis veya depolama noktalari icin ayri ayri izlenebilir."
+            },
+            three: {
+              q: "Dusuk stok bildirimleri nasil calisir?",
+              a: "Uygulama belirlediginiz limitleri ve gunluk azalma degerlerini kullanarak kalan gun tahmini yapar, gerekli oldugunda da yerel bildirim gonderir."
+            },
+            four: {
+              q: "Uygulamanin internet baglantisina ihtiyaci var mi?",
+              a: "Temel stok akislari cihaz uzerinde yerel calisacak sekilde tasarlanmistir. Uygulamada yerlesik hesap sistemi veya uzak sunucu senkronu yoktur."
+            },
+            five: {
+              q: "Yardima ihtiyacim olursa nereye ulasabilirim?",
+              a: "Destek sayfasini ziyaret edebilir veya <a href=\"mailto:mustafa_kemal_demir@protonmail.com\">mustafa_kemal_demir@protonmail.com</a> adresine e-posta gonderebilirsiniz."
+            }
+          }
+        },
+        cta: {
+          kicker: "Sonraki adim",
+          title: "Stok rutininize daha sakin bir sistem ekleyin.",
+          body: "Keep in Stock iki dilli destek, gizlilik sayfalari ve form altyapisiyla hazir; App Store baglantinizi yayin hazir oldugunda ekleyebilirsiniz.",
+          primary: "App Store baglantisi ile degistirin",
+          secondary: "Destek sayfasini ac"
+        },
+        footer: {
+          tagline: "iPhone ve iPad icin yerel stok takibi.",
+          navTitle: "Gezin",
+          legalTitle: "Yasal",
+          privacy: "Gizlilik Politikasi",
+          terms: "Kullanim Sartlari",
+          copy: "© 2026 Mustafa Kemal Demir. Tum haklari saklidir."
+        }
+      }
+    };
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>

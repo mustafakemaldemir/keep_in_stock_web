@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Keep in Stock Terms of Service describe the permitted use of the app, local data responsibility, and reminder-related limitations."/>
+  <title>Terms of Service | Keep in Stock</title>
+  <link rel="icon" href="src_eng/AppIcon.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: "#2f9b57",
+            ink: "#132216",
+            mist: "#f4f7f1"
+          },
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="text-slate-900 dark:text-slate-100 transition-colors duration-200">
+  <div class="page-grid min-h-screen">
+    <header class="topbar sticky top-0 z-50">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+          <img src="src_eng/AppIcon.png" alt="Keep in Stock app icon" class="h-11 w-11 rounded-2xl shadow-lg shadow-black/10"/>
+          <div>
+            <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="header.badge">Terms of Service</p>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="lang-switch">
+            <button class="lang-btn" data-set-lang="tr" aria-pressed="false">TR</button>
+            <button class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button id="darkToggle" class="theme-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-slate-600 transition-colors hover:text-brand dark:text-slate-300" aria-label="Toggle dark mode">
+            <span id="darkIcon" class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <a href="index.html" data-preserve-lang class="hidden rounded-full border border-slate-300 bg-white/70 px-5 py-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 sm:inline-flex" data-i18n="header.back">Back to home</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-4xl">
+        <div class="section-kicker mb-6">
+          <span class="material-symbols-outlined filled text-base">gavel</span>
+          <span data-i18n="hero.kicker">Legal</span>
+        </div>
+        <h1 class="display-font text-5xl font-bold tracking-tight text-ink dark:text-white sm:text-6xl" data-i18n="hero.title">Terms of Service</h1>
+        <p class="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300" data-i18n="hero.updated">Last updated: March 17, 2026</p>
+
+        <div class="glass-panel mt-10 rounded-[2rem] p-8">
+          <div class="flex items-start gap-4">
+            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand/10 text-brand">
+              <span class="material-symbols-outlined text-3xl">info</span>
+            </div>
+            <div>
+              <p class="text-xs font-extrabold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400" data-i18n="summary.label">Short version</p>
+              <p class="mt-2 text-base leading-8 text-slate-700 dark:text-slate-300" data-i18n-html="summary.body">
+                Keep in Stock is provided as-is for personal stock tracking. You remain responsible for your own inventory decisions, backups, and reminder settings.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="legal-copy soft-card mt-10 rounded-[2rem] p-8 sm:p-10" data-i18n-html="content">
+          <h2>1. Acceptance of Terms</h2>
+          <p>By downloading or using Keep in Stock, you agree to these Terms of Service.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200/70 px-4 py-12 sm:px-6 lg:px-8 dark:border-slate-800">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+        <a href="index.html" data-preserve-lang class="flex items-center gap-3">
+          <img src="src_eng/AppIcon.png" alt="Keep in Stock app icon" class="h-10 w-10 rounded-2xl shadow-lg shadow-black/10"/>
+          <div>
+            <p class="display-font text-lg font-bold tracking-tight">Keep in Stock</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400" data-i18n="footer.tagline">Practical stock tracking, transparent terms.</p>
+          </div>
+        </a>
+        <div class="flex flex-wrap gap-5 text-sm font-semibold">
+          <a href="support.html" data-preserve-lang class="footer-link" data-i18n="footer.support">Support</a>
+          <a href="privacy-policy.html" data-preserve-lang class="footer-link" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="mailto:mustafa_kemal_demir@protonmail.com" class="footer-link">mustafa_kemal_demir@protonmail.com</a>
+        </div>
+      </div>
+      <div class="mx-auto mt-8 max-w-7xl border-t border-slate-200/70 pt-6 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+        <p data-i18n="footer.copy">© 2026 Mustafa Kemal Demir. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    window.pageTranslations = {
+      en: {
+        meta: {
+          title: "Terms of Service | Keep in Stock",
+          description: "Keep in Stock Terms of Service describe the permitted use of the app, local data responsibility, and reminder-related limitations."
+        },
+        header: {
+          badge: "Terms of Service",
+          back: "Back to home"
+        },
+        hero: {
+          kicker: "Legal",
+          title: "Terms of Service",
+          updated: "Last updated: March 17, 2026"
+        },
+        summary: {
+          label: "Short version",
+          body: "Keep in Stock is provided <strong>as-is</strong> for personal stock tracking. You remain responsible for your own inventory decisions, backups, and reminder settings."
+        },
+        content: `
+          <h2>1. Acceptance of Terms</h2>
+          <p>By downloading or using Keep in Stock ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App.</p>
+
+          <h2>2. Description of the App</h2>
+          <p>Keep in Stock is an inventory management app for iOS intended to help users track products across multiple locations, record stock movements, prepare shopping lists, and receive reminders based on their own inventory rules.</p>
+          <p>The App is positioned as a local-first utility rather than a hosted inventory service.</p>
+
+          <h2>3. License</h2>
+          <p>You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes on Apple devices that you own or control, subject to these Terms.</p>
+          <p>You may not:</p>
+          <ul>
+            <li>Copy, modify, or distribute the App except as allowed by applicable law.</li>
+            <li>Reverse engineer, decompile, or disassemble the App except where legally permitted.</li>
+            <li>Use the App for unlawful activity.</li>
+          </ul>
+
+          <h2>4. Your Inventory Decisions</h2>
+          <p>The App provides tools to help you organize and review stock information, but it does not guarantee that your inventory, shopping, or reminder data will always be complete, current, or accurate.</p>
+          <p>You remain responsible for checking real-world quantities, purchase needs, and consumption assumptions before acting on the information shown in the App.</p>
+
+          <h2>5. Reminder and Forecast Limitations</h2>
+          <p>Low-stock reminders and estimated days-left values depend on the limits, movement history, and daily decrease values you enter. These are informational aids only and should not be treated as guaranteed forecasts.</p>
+          <p>The Developer is not responsible for missed purchases, shortages, or similar outcomes resulting from estimates or reminder behavior.</p>
+
+          <h2>6. Local Data Responsibility</h2>
+          <p>Inventory data created in the App is intended to remain stored locally on your device. You are responsible for safeguarding your device and any backups you choose to maintain.</p>
+          <p>If the App is deleted, associated local data may also be removed from the device.</p>
+
+          <h2>7. Disclaimer of Warranties</h2>
+          <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+          <h2>8. Limitation of Liability</h2>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE DEVELOPER SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM OR RELATED TO YOUR USE OF THE APP.</p>
+          <p>This includes, without limitation, loss of data, missed reminders, inventory inaccuracies, or shopping-related mistakes.</p>
+
+          <h2>9. App Store and Apple Terms</h2>
+          <p>If the App is distributed through Apple's App Store, your use of the App is also subject to Apple's applicable store terms and device policies.</p>
+
+          <h2>10. Changes to the App or These Terms</h2>
+          <p>The Developer may update the App or these Terms from time to time. When the Terms are updated, the revised version will be posted on this page with a new "Last updated" date.</p>
+
+          <h2>11. Contact</h2>
+          <p>If you have questions about these Terms, contact:</p>
+          <p><strong>Mustafa Kemal Demir</strong><br/><a href="mailto:mustafa_kemal_demir@protonmail.com">mustafa_kemal_demir@protonmail.com</a></p>
+        `,
+        footer: {
+          tagline: "Practical stock tracking, transparent terms.",
+          support: "Support",
+          privacy: "Privacy Policy",
+          copy: "© 2026 Mustafa Kemal Demir. All rights reserved."
+        }
+      },
+      tr: {
+        meta: {
+          title: "Kullanim Sartlari | Keep in Stock",
+          description: "Keep in Stock Kullanim Sartlari; uygulamanin izin verilen kullanimini, yerel veri sorumlulugunu ve hatirlatma sinirlarini aciklar."
+        },
+        header: {
+          badge: "Kullanim Sartlari",
+          back: "Ana sayfaya don"
+        },
+        hero: {
+          kicker: "Yasal",
+          title: "Kullanim Sartlari",
+          updated: "Son guncelleme: 17 Mart 2026"
+        },
+        summary: {
+          label: "Kisa ozet",
+          body: "Keep in Stock, kisisel stok takibi icin <strong>oldugu gibi</strong> sunulur. Kendi envanter kararlarinizdan, yedeklerinizden ve hatirlatma ayarlarinizdan siz sorumlusunuz."
+        },
+        content: `
+          <h2>1. Sartlarin Kabul Edilmesi</h2>
+          <p>Keep in Stock'u ("Uygulama") indirerek veya kullanarak bu Kullanim Sartlari'na ("Sartlar") bagli olmayi kabul etmis olursunuz. Kabul etmiyorsaniz Uygulamayi kullanmayin.</p>
+
+          <h2>2. Uygulamanin Tanimi</h2>
+          <p>Keep in Stock; kullanicilarin urunleri birden fazla konumda takip etmesine, stok hareketlerini kaydetmesine, alisveris listeleri hazirlamasina ve kendi stok kurallarina gore hatirlatmalar almasina yardimci olmak icin tasarlanmis bir iOS envanter uygulamasidir.</p>
+          <p>Uygulama, barindirilan bir envanter servisi degil; yerel odakli bir yardimci arac olarak konumlanir.</p>
+
+          <h2>3. Lisans</h2>
+          <p>Bu Sartlara tabi olmak uzere, size sahip oldugunuz veya kontrol ettiginiz Apple cihazlarinda Uygulamayi kisisel ve ticari olmayan amaclarla kullanmaniz icin sinirli, münhasir olmayan, devredilemez ve geri alinabilir bir lisans verilir.</p>
+          <p>Asagidakileri yapamazsiniz:</p>
+          <ul>
+            <li>Yururlukteki hukuk izin vermedikce Uygulamayi kopyalamak, degistirmek veya dagitmak.</li>
+            <li>Yasal olarak acikca izin verilmedikce Uygulamayi tersine muhendislik, dekompile veya disassemble etmek.</li>
+            <li>Uygulamayi hukuka aykiri amaclarla kullanmak.</li>
+          </ul>
+
+          <h2>4. Envanter Kararlariniz</h2>
+          <p>Uygulama, stok bilgilerini duzenlemeniz ve incelemeniz icin araclar sunar; ancak envanter, alisveris veya hatirlatma verilerinin her zaman eksiksiz, guncel ya da hatasiz olacagini garanti etmez.</p>
+          <p>Uygulamadaki bilgilere gore hareket etmeden once gercek miktarlari, satin alma ihtiyaclarini ve tuketim varsayimlarini kontrol etmek sizin sorumlulugunuzdadir.</p>
+
+          <h2>5. Hatirlatma ve Tahmin Sinirlari</h2>
+          <p>Dusuk stok hatirlatmalari ve tahmini kalan gun degerleri; girdiginiz limitlere, hareket gecmisine ve gunluk azalma degerlerine baglidir. Bunlar yalnizca bilgilendirici yardimcilardir; kesin tahmin olarak gorulmemelidir.</p>
+          <p>Gelistirici; tahminlerden veya hatirlatma davranisindan kaynaklanan eksik satin alma, yetersiz stok veya benzeri sonuclardan sorumlu tutulamaz.</p>
+
+          <h2>6. Yerel Veri Sorumlulugu</h2>
+          <p>Uygulamada olusturulan stok verilerinin cihazinizda yerel olarak saklanmasi hedeflenir. Cihazinizi korumak ve tercih ettiginiz yedekleri surdurmek sizin sorumlulugunuzdadir.</p>
+          <p>Uygulamayi silerseniz ilgili yerel veriler de cihazdan kaldirilabilir.</p>
+
+          <h2>7. Garanti Reddi</h2>
+          <p>UYGULAMA, TICARI ELVERISLILIK, BELIRLI BIR AMACA UYGUNLUK VE IHLAL ETMEME GARANTILERI DE DAHIL OLMAK UZERE, ACIK VEYA ZIMNI HERHANGI BIR GARANTI VERILMEDEN "OLDUGU GIBI" VE "MEVCUT OLDUGU SEKILDE" SUNULUR.</p>
+
+          <h2>8. Sorumlulugun Sinirlandirilmasi</h2>
+          <p>YASALARIN IZIN VERDIGI AZAMI OLCEKTE, GELISTIRICI UYGULAMANIN KULLANIMINDAN DOGAN VEYA BUNUNLA ILGILI DOLAYLI, ARIZI, OZEL, SONUC NITELIGINDEKI YA DA CEZAI ZARARLARDAN SORUMLU TUTULAMAZ.</p>
+          <p>Buna veri kaybi, kacirilan hatirlatmalar, stok hatalari veya alisverisle ilgili yanlis kararlar da dahildir.</p>
+
+          <h2>9. App Store ve Apple Sartlari</h2>
+          <p>Uygulama Apple App Store uzerinden dagitiliyorsa, Uygulamayi kullaniminiz Apple'in ilgili magaza sartlarina ve cihaz politikalarina da tabidir.</p>
+
+          <h2>10. Uygulama veya Bu Sartlarda Degisiklik</h2>
+          <p>Gelistirici zaman zaman Uygulamayi veya bu Sartlari guncelleyebilir. Sartlar guncellendiginde yeni surum bu sayfada yayinlanir ve "Son guncelleme" tarihi yenilenir.</p>
+
+          <h2>11. Iletisim</h2>
+          <p>Bu Sartlarla ilgili sorulariniz icin su adrese ulasabilirsiniz:</p>
+          <p><strong>Mustafa Kemal Demir</strong><br/><a href="mailto:mustafa_kemal_demir@protonmail.com">mustafa_kemal_demir@protonmail.com</a></p>
+        `,
+        footer: {
+          tagline: "Pratik stok takibi, acik sartlar.",
+          support: "Destek",
+          privacy: "Gizlilik Politikasi",
+          copy: "© 2026 Mustafa Kemal Demir. Tum haklari saklidir."
+        }
+      }
+    };
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>
