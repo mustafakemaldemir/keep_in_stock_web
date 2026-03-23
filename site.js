@@ -3,6 +3,10 @@
   const LANG_KEY = "keepinstock-lang";
   const VALID_LANGS = new Set(["en", "tr"]);
   const SUPPORT_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwkfwPm7OAFw8aoDZpHEgEt65o4YoMv7yox6FEQ7YHWmgx9LcDf_eUmpPsczZ1yG-Ay/exec";
+  const APP_STORE_URLS = {
+    en: "https://apps.apple.com/us/app/keep-in-stock/id6760545394",
+    tr: "https://apps.apple.com/tr/app/stokta-tut/id6760545394?l=tr"
+  };
 
   function resolveKey(bundle, key) {
     return key.split(".").reduce(function (value, part) {
@@ -109,6 +113,14 @@
     updateLanguageLinks(lang);
   }
 
+  function updateAppStoreLinks(lang) {
+    const href = APP_STORE_URLS[lang] || APP_STORE_URLS.en;
+
+    document.querySelectorAll("a[data-app-store-link]").forEach(function (link) {
+      link.setAttribute("href", href);
+    });
+  }
+
   function applyTranslations(lang) {
     const bundle = window.pageTranslations && window.pageTranslations[lang];
     if (!bundle) {
@@ -154,6 +166,7 @@
   function setLanguage(lang) {
     applyTranslations(lang);
     syncLangState(lang);
+    updateAppStoreLinks(lang);
   }
 
   function setupMobileMenu() {
